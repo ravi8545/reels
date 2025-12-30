@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'helvetica neue';
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile{
+  height: 150px;
+  width: 350px;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem;
+  border-radius: 1rem;
+}
+button{
+  padding: 0.5rem;
+  background-color: lightgreen;
+  border-radius: 0.5rem;
+}
