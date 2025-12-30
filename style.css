@@ -2,34 +2,96 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'helvetica neue';
+  font-family: Arial, sans-serif;
 }
-html,
+
+/* Disable body scroll */
 body {
+  height: 100vh;
+  overflow: hidden;
+  background: black;
+}
+
+/* Scroll container */
+main {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+/* Reel */
+.reels {
+  height: 100vh;
+  width: 360px;
+  margin: auto;
+  position: relative;
+  scroll-snap-align: start;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Image */
+.reels video{
   height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 
-main{
+/* Bottom content */
+.bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile img {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  border: 2px solid red;
+}
+
+.profile button {
+  margin-left: auto;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 4px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.desc {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Right icons */
+.left {
+  position: absolute;
+  right: 10px;
+  bottom: 120px;
+  color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 20px;
+  text-align: center;
 }
 
-.profile{
-  height: 150px;
-  width: 350px;
-  background-color: grey;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin: 1rem;
-  border-radius: 1rem;
+.left i {
+  font-size: 22px;
+  cursor: pointer;
 }
-button{
-  padding: 0.5rem;
-  background-color: lightgreen;
-  border-radius: 0.5rem;
+
+.left span {
+  font-size: 12px;
 }
