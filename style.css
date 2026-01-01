@@ -61,7 +61,7 @@ main {
 }
 
 .profile button {
-  margin-left: auto;
+
   background: transparent;
   color: white;
   border: 1px solid white;
@@ -98,4 +98,7 @@ main {
 .love{
   color: red;
 
+}
+i, p{
+  pointer-events: none;
 }

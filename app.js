@@ -28,7 +28,8 @@ const reelsData = [
     isLiked: false,
     commentCount: 3400,
     caption: "Travel diaries 🌍 #wanderlust",
-    video: "https://cdn.pixabay.com/video/2022/08/18/128315-741195832_large.mp4",
+    video:
+      "https://cdn.pixabay.com/video/2022/08/18/128315-741195832_large.mp4",
     userProfile: "https://randomuser.me/api/portraits/women/3.jpg",
     shareCount: 260,
     isFollowed: false,
@@ -78,7 +79,7 @@ const reelsData = [
     shareCount: 60,
     isFollowed: false,
   },
-    {
+  {
     username: "pooja_jain",
     likeCount: 27800,
     isLiked: true,
@@ -88,25 +89,32 @@ const reelsData = [
     userProfile: "https://randomuser.me/api/portraits/women/7.jpg",
     shareCount: 110,
     isFollowed: true,
-  }
+  },
 ];
-let sum = 0;
-reelsData.forEach(function (ele) {
-  sum =
-    sum +
-    `  <div class="reels">
+let main = document.querySelector("main");
+function adddata() {
+  let sum = 0;
+  reelsData.forEach(function (ele, idx) {
+    console.log(idx);
+    sum =
+      sum +
+      `  <div class="reels">
       <video autoplay muted loop src=${ele.video}></video>
       <div class="bottom">
         <div class="profile">
           <img src="https://24thspoke.in/cdn/shop/files/IMG-20240824-WA0197.jpg?v=1725372282">
           <p>${ele.username}</p>
-          <button>${ele.isFollowed ? 'Unfollow' : 'follow'}</button>
+          <button>${ele.isFollowed ? "Unfollow" : "follow"}</button>
         </div>
         <p class="desc">${ele.caption}</p>
       </div>
 
       <div class="left">
-        <div> ${ele.isLiked ? '<i class="love fa-regular fa-heart"></i>' : '<i class="fa-regular fa-heart"></i>'}
+        <div id=${idx}> ${
+        ele.isLiked
+          ? '<i class="love fa-regular fa-heart"></i>'
+          : '<i class="fa-regular fa-heart"></i>'
+      }
           <p>${ele.likeCount}</p>
         </div>
         <div><i class="fa-regular fa-comment"></i>
@@ -118,7 +126,22 @@ reelsData.forEach(function (ele) {
         <div><i class="ri-more-2-line"></i></div>
       </div>
     </div>`;
-});
+  });
 
-let main = document.querySelector('main');
-main.innerHTML=sum;
+  main.innerHTML = sum;
+}
+
+adddata();
+
+main.addEventListener("click", function (event) {
+  if (!reelsData[event.target.id].isLiked) {
+    reelsData[event.target.id].likeCount++;
+    reelsData[event.target.id].isLiked = true;
+  } else {
+    reelsData[event.target.id].likeCount--;
+    reelsData[event.target.id].isLiked = false;
+  }
+
+  adddata();
+  console.log();
+});
